@@ -1,0 +1,19 @@
+{
+	"params":
+	{
+		"local_server": "True",
+		"local_uri": "mysql://root:@localhost/mydiary",
+		"prod_uri": "mysql://root:@localhost/mydiary",
+		"fb_url": "https://facebook.com/mydiary",
+		"tw_url": "https://twetter.com/mydiary",
+		"gh_url": "https://github.com/mydiary",
+		"gmail_user_id": "ujjwal.maurya0619@gmail.com",
+		"gmail_user_password": "Ullash@72525",
+		"aout_text": "This blocg is created by me and we can add more here",
+		"login_image": "myimage.jpg",
+		"admin_user_id": "ujjwal",
+		"admin_user_password": "12345",
+		"no_posts_in_home": 2,
+		"upload_location": "D:\\Flask\\uploads"
+	}
+}

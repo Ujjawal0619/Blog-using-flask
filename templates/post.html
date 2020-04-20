@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+{% block body %}
+
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url({{ url_for('static', filename = 'img/post-bg.jpg') }})">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="post-heading">
+            <h1>{{ postfortemp.title }}</h1>
+            <h2 class="subheading">{{postfortemp.tagline}}</h2>
+            <span class="meta">Posted by
+              <a href="#">Start Bootstrap</a>
+              on {{postfortemp.date}} place {{postfortemp.place}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Post Content -->
+  <article>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <p>
+            {{postfortemp.content}}
+          </p>
+        </div>
+      </div>
+    </div>
+  </article>
+{% endblock %}

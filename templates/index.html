@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+{% block body %}
+
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url({{ url_for('static', filename = 'img/home-bg.jpg') }})">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>Clean Blog</h1>
+            <span class="subheading">A Blog Theme by Start Bootstrap</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        {% for post in postsfortemp.items %} <!-- space can be given btwn { and % -->
+          <div class="post-preview">
+            <a href="post/{{post.slug}}"> <!-- adding slug corresponding to each post, on click this is fired from main.py /post/<string:given slug and then all the query for that particular post will be fetched and shown on post/ page -->
+              <h2 class="post-title">
+                {{post.title}}
+              </h2>
+              <h3 class="post-subtitle">
+                {{post.tagline}}
+              </h3>
+            </a>
+            <p class="post-meta">Posted by
+              <a href="#">Start Bootstrap</a>
+              on {{post.date}} place {{post.place}}</p>
+          </div>
+          <hr>
+        {% endfor %}
+        <!-- Pager -->
+        <div class="clearfix">
+          <a class="btn btn-primary float-left" href="#">&larr; prev Posts</a>
+          <div class="container">
+            {% for page_num in postsfortemp.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}<!--right_current include the current page -->
+              {% if page_num %}
+                {% if postsfortemp.page == page_num %}
+                  <a class="btn btn-primary mb-4" href="{{url_for('home', page = page_num)}}">{{page_num}}</a>
+                {% else %}
+                  <a class="btn btn-outline-info mb-4" href="{{url_for('home', page = page_num)}}">{{page_num}}</a>
+                {% endif %}
+            {% else %}
+                ... <!--if iter_pages return None-->
+              {% endif %}
+            {% endfor %}
+          </div>
+          <a class="btn btn-primary float-right" href="#">next Posts &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% endblock %}
